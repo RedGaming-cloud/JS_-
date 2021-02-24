@@ -1,0 +1,42 @@
+<script>
+
+    function plus(num1, num2) {
+        return num1 + num2;
+    }
+
+    function minus(num1, num2) {
+        return num1 - num2;
+    }
+
+    function multiply(num1, num2) {
+        return num1 * num2;
+    }
+
+    function divide(num1, num2) {
+        let result = num1 / num2;
+        return result.toFixed(2);
+    }
+
+    function mathOperation(arg1, arg2, operation) {
+        switch (operation) {
+            case plus:
+                return plus(arg1, arg2);
+                break;
+            case minus:
+                return minus(arg1, arg2);
+                break;
+            case multiply:
+                return multiply(arg1, arg2);
+                break;
+            case divide:
+                return divide(arg1, arg2);
+                break;
+            default:
+                console.log("Не введены числа или операция");
+        }
+    }
+
+    let operation = mathOperation(18, 12, plus);
+    console.log(operation);
+
+</script>

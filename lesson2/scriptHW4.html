@@ -1,0 +1,20 @@
+<script>
+    "use strict"
+
+    let a = +prompt("Введите число от 0 до 15");
+
+    switch (a >= 0 && a <= 15) {
+        case a < 0:
+            console.log("Число должно быть в пределах от 0 до 15");
+            break;
+        case a > 15:
+            console.log("Число должно быть в пределах от 0 до 15");
+            break;
+        default:
+            for (a; a <= 15; a++) {
+                console.log(a)
+            }
+
+    }
+
+</script>
