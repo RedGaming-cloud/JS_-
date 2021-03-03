@@ -1,0 +1,22 @@
+<script>
+    "use strict"
+    let basket = [
+        ["good1", "red", 102, 2],
+        ["good2", "green", 192, 1],
+        ["good3", "blue", 48, 5],
+        ["good4", "red", 374, 2]
+    ]
+
+    let cartPrice = function countBasketPrice(array) {
+        let price = 0;
+        for (let i = 0; i <= array.length - 1; i++) {
+            let basketItem = array[i];
+            let result = basketItem[basketItem.length - 1] * basketItem[basketItem.length - 2];
+            price += result;
+        }
+        return price;
+    }
+
+    console.log(cartPrice(basket));
+
+</script>
