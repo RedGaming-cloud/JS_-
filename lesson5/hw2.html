@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cart</title>
+</head>
+
+<body>
+    <section class="cart">
+        <div class="items">
+
+        </div>
+        <div class="price">
+
+        </div>
+    </section>
+
+    <script>
+        'use strict'
+
+        const goodsItem1 = {
+            name: "goods",
+            iD: 1128,
+            type: "t-shirt",
+            brand: "brandA",
+            color: "red",
+            size: "S",
+            price: 380.5,
+            quantity: 3,
+            resultPrice() {
+                return this.price * this.quantity;
+            },
+        }
+        const goodsItem2 = {
+            name: "goods",
+            iD: 132,
+            type: "polo",
+            brand: "brandA",
+            color: "green",
+            size: "L",
+            price: 140.1,
+            quantity: 1,
+            resultPrice() {
+                return this.price * this.quantity;
+            },
+        }
+        const goodsItem3 = {
+            name: "goods",
+            iD: 11467,
+            type: "sweetshot",
+            brand: "brandC",
+            color: "violet",
+            size: "L",
+            price: 470,
+            quantity: 2,
+            resultPrice() {
+                return this.price * this.quantity;
+            },
+        }
+
+        const itemsCollection = [];
+        const itemsClass = document.querySelector('.items');
+        const itemsPrice = document.querySelector('.price');
+
+        itemsCollection.push(goodsItem1);
+        itemsCollection.push(goodsItem3);
+
+        function addItem(itemsCollection) {
+            for (let elem = 0; elem < itemsCollection.length; elem++) {
+                const goodsItem = itemsCollection[elem];
+                itemsClass.innerHTML += '<div class="items__item"></div>';
+            }
+        }
+
+        function getItems() {
+            const cartItems = document.querySelectorAll('.items__item');
+            for (let key = 0; key < cartItems.length; key++) {
+                cartItems.item(key).insertAdjacentText("beforeend", "Товар: " + itemsCollection[key].type + ". Производитель:" + itemsCollection[key].brand + ", цвет: " + itemsCollection[key].color + ", цена: " + itemsCollection[key].price + "$, количество:" + itemsCollection[key].quantity + ". ");
+                const itemsPrice = itemsCollection[key].price * itemsCollection[key].quantity;
+                cartItems.item(key).insertAdjacentText("beforeend", "\ Общая стоимость: " + itemsPrice + "$. ");
+            }
+        }
+
+        function getTotalPrice() {
+            const cartItems = document.querySelectorAll('.items__item');
+            let itemsPrice = 0;
+            let totalPrice = 0;
+            for (let i = 0; i < cartItems.length; i++) {
+                itemsPrice = itemsCollection[i].resultPrice();
+                totalPrice += itemsPrice;
+            }
+            return totalPrice;
+        }
+
+        addItem(itemsCollection);
+        getItems();
+
+        const cartPrice = document.querySelector(".price");
+        cartPrice.insertAdjacentText("beforeend", "В корзине: " + itemsCollection.length + " товаров. " + "Итоговая стоимость: " + getTotalPrice() + "$.");
+
+    </script>
+
+</body>
+
+</html>

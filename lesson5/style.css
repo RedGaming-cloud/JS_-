@@ -1,0 +1,101 @@
+.nulled-item {
+  background-color: #0000006e;
+}
+
+.chessdesc {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (64px)[9];
+      grid-template-columns: repeat(9, 64px);
+  -ms-grid-rows: (64px)[9];
+      grid-template-rows: repeat(9, 64px);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.chessdesc__item {
+  border: 1px solid #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.chessdesc__item_topRow {
+  border: 1px solid #000;
+  background-color: #fff;
+  height: 64px;
+  width: 64px;
+}
+
+.chessdesc__item_topColumn {
+  border: 1px solid #000;
+  background-color: #fff;
+  height: 64px;
+  width: 64px;
+}
+
+.chessdesc__item_black {
+  background-color: #000;
+}
+
+.chessdesc__item_white {
+  background-color: #fff;
+}
+
+.cart {
+  padding-left: calc(50% - 539px);
+  padding-right: calc(50% - 539px);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  height: 600px;
+  grid-gap: 30px;
+  background-color: #999797ad;
+}
+
+.items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #000;
+  padding: 36px;
+}
+
+.price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #000;
+  padding: 36px;
+}
+/*# sourceMappingURL=style.css.map */
