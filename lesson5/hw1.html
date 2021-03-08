@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        const chessDesc = document.querySelector('body').insertAdjacentHTML('afterbegin', '<div class="chessdesc"></div>');
+
+        for (let i = 0; i < 81; i++) {
+            document.querySelector(".chessdesc").insertAdjacentHTML(
+                "afterbegin", "<div class='chessdesc__item chessdesc__cell'></div>");
+        }
+        const itemList = document.querySelectorAll('.chessdesc__item');
+        const letterCollection = ["A", "B", "C", "D", "E", "F", "G", "H"];
+        const numbersCollection = [1, 2, 3, 4, 5, 6, 7, 8];
+
+        itemList.item(0).classList.add("nulled-item");
+        itemList.item(0).classList.remove("chessdesc__cell");
+
+        function topRowNumerator(array) {
+            for (const key in itemList) {
+                if (key > 0 && key < 9) {
+                    itemList.item(key).classList.add("chessdesk__item_topRow");
+                    itemList.item(key).classList.remove("chessdesc__cell");
+                    itemList.item(key).insertAdjacentText("afterbegin", letterCollection[key - 1]);
+                }
+            }
+        }
+
+        function topColumnNumerator(array) {
+            for (const key in itemList) {
+                if (key % 9 == 0 && key != 0) {
+                    itemList.item(key).classList.add("chessdesk__item_topColumn");
+                    itemList.item(key).classList.remove("chessdesc__cell");
+                    itemList.item(key).insertAdjacentText("afterbegin", numbersCollection[key / 9 - 1]);
+                }
+            }
+        }
+
+        function colorCells(params) {
+            const chessCell = document.querySelectorAll(".chessdesc__cell");
+            for (let key in chessCell) {
+                if (key < 8) {
+                    if (key % 2 == 0) {
+                        chessCell.item(key).classList.add("chessdesc__item_white");
+                    } else {
+                        chessCell.item(key).classList.add("chessdesc__item_black");
+                    }
+                }
+                if (key >= 8) {
+                    if (chessCell.item(key - 8).classList.contains("chessdesc__item_white")) {
+                        chessCell.item(key).classList.add("chessdesc__item_black");
+                    } else chessCell.item(key).classList.add("chessdesc__item_white");
+                }
+            }
+        }
+
+        function renderChess(letterCollection, numbersCollection) {
+            topRowNumerator(letterCollection);
+            topColumnNumerator(numbersCollection);
+            colorCells();
+        }
+
+        renderChess(letterCollection, numbersCollection);
+
+
+    </script>
+</body>
+
+</html>
